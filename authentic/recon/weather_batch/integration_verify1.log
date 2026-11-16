@@ -1,0 +1,931 @@
+================================================================
+ OpenSC4 Source-of-Truth Verification Suite
+================================================================
+  [PASS] W6 record radioactive unsigned masked shift and dirty-after-set @ 0x10009a738 
+  [PASS] W6 record radioactive false still writes and dirties @ 0x10009a738 
+  [PASS] W6 record air signed16 boundary and negative shift mask @ 0x10009a790 
+  [PASS] W6 record air low16 wrap to zero @ 0x10009a790 
+  [PASS] W6 record water low16 underflow and shift32 @ 0x10009a7e8 
+  [PASS] W6 record garbage clears low bits, preserves active bit, raw get/shifted set @ 0x10009a840 
+  [PASS] W6 record garbage clears low bits, preserves active bit, raw get/shifted set @ 0x10009a840 
+  [PASS] W6 const record landfill query extracts bit15 at raw coords @ 0x10009a924 
+  [PASS] W6 const record landfill query extracts bit15 at raw coords @ 0x10009a924 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill exact AL, raw coords, counter overflow/floor and no-transition preservation @ 0x10009a940 
+  [PASS] W6 record landfill full-width mode rejection preserves dirty @ 0x10009a940 
+  [PASS] W6 record landfill removal allowed outside mode14 @ 0x10009a940 
+  [PASS] W6 record uses State directly across callback descriptor/storage mutations @ 0x10009a790 
+  [PASS] invalid-sub 
+  [PASS] invalid-mul 
+  [PASS] invalid-add 
+  [PASS] invalid-div 
+  [PASS] mixed-positive-sNaN 
+  [PASS] mixed-negative-sNaN 
+  [PASS] capacity record missing uint32 property clears output and skips power @ 0x100099322 
+  [PASS] capacity record rereads holder and dynamic scale after power @ 0x10009933b 
+  [PASS] capacity record unpowered zero still dispatches curve lookup @ 0x100099331 
+  [PASS] capacity record unpowered zero times infinity truncates low32 @ 0x100099344 
+  [PASS] capacity record highbit capacity uses unsigned float conversion @ 0x10009931b 
+  [PASS] capacity record rounded uint32 max truncates through 64bit low32 @ 0x100099349 
+  [PASS] capacity record curve multiplier uses unsigned saved highbit capacity @ 0x1000993b3 
+  [PASS] capacity record negative fractional scale truncates toward zero @ 0x100099344 
+  [PASS] capacity record raw value data count dispatch floors odd tail and magic rounds tie @ 0x1000ac37a 
+  [PASS] capacity record ignored missing float input retains initialized zero @ 0x10009938d 
+  [PASS] capacity record input callback output mutation precedes capacity snapshot @ 0x1000993a0 
+  [PASS] capacity record present empty curve faults distinctly without overwriting scaled out @ 0x1000ac542 
+  [PASS] capacity record single odd scalar still clears fresh curve then faults @ 0x1000ac3cb 
+  [PASS] capacity record valid zero response is success rather than storage fault @ 0x1000993cd 
+  [PASS] capacity record raw dispatch exception unwinds curve and next invocation recovers @ 0x1000993f6 
+  [PASS] capacity record runtime source identity survives byte identical Read Write 
+
+--- 1. cSC4SimGrid<T> (SC4SimGrid.cpp.inl) ---
+  [PASS] SimGrid TractSize == 4 
+  [PASS] SimGrid TractShift == 2 (2^2 = 4) 
+  [PASS] SimGrid 128x128 city -> 32x32 tracts 
+  [PASS] SimGrid GetCellValue(8,12) == 120 
+  [PASS] SimGrid fast-path single-tract average == 120 
+  [PASS] SimGrid Write(cIGZOStream&) succeeded 
+  [PASS] SimGrid Read(cIGZIStream&) succeeded 
+  [PASS] SimGrid binary serialization roundtrip exact match 
+  [PASS] cRZRandom::RandomUint32Uniform bound 0 returns 0 without advancing seedA @ 0x10003d366 
+  [PASS] cRZRandom::RandomUint32Uniform seed 1/bound 100 sequence 0,35,74 @ 0x10003d366 
+  [PASS] cRZRandom::RandomDoubleUniform call 1 exact Float32-scaled bits @ 0x10003d500 
+  [PASS] cRZRandom::RandomDoubleUniform call 2 exact Float32-scaled bits @ 0x10003d500 
+  [PASS] cRZRandom::RandomDoubleUniform call 3 exact bits and wrapped seedB @ 0x10003d500 
+  [PASS] cRZRandom::RandomDoubleGaussian call 1 exact return/cache/seed state @ 0x10003d540 
+  [PASS] cRZRandom::RandomDoubleGaussian call 2 cached return does not advance seedB @ 0x10003d540 
+  [PASS] cRZRandom::RandomDoubleGaussian call 3 exact return/cache/seed state @ 0x10003d540 
+  [PASS] libc++ default mt19937 uniform_int_distribution<ptrdiff_t>(0,255) first ten @ 0x10009b36d 
+  [PASS] RandomIterator::Reset(false) row-major fill and post-Reset fields @ 0x100213f58 
+  [PASS] RandomIterator::Reset(true) exact forward Fisher-Yates permutation @ 0x100213f58 / 0x10009b36d 
+  [PASS] LinearRandomIterator::Reset(false) linear fill and post-Reset fields @ 0x10008daf0 
+  [PASS] LinearRandomIterator::Reset(true) shared-engine Fisher-Yates permutation @ 0x10008daf0 / 0x1000c4afc 
+  [PASS] RandomIterator::Reset preserves correctly sized vector when field2 is zero @ 0x100213f58 
+  [PASS] LinearRandomIterator::Reset preserves correctly sized vector when field2 is zero @ 0x10008daf0 
+  [PASS] RandomIterator::Reset signed inclusive bounds and packed coordinates @ 0x100213f58 
+  [PASS] LinearRandomIterator::Reset zero-count early return preserves vector and clears tails @ 0x10008daf0 
+  [PASS] RandomIterator::Reset(true) direct count 28 stores offset 7 and prime 11 @ 0x100213f58 
+  [PASS] RandomIterator::Reset(true) direct path consumes exactly one rand() @ 0x100213f58 
+  [PASS] LinearRandomIterator::Reset(true) direct count 28 stores offset 7 and prime 11 @ 0x10008daf0 
+  [PASS] LinearRandomIterator::Reset(true) direct path consumes exactly one rand() @ 0x10008daf0 
+  [PASS] DoIdle State 0/1: reset + intrinsic fill completes, state 2 stored @ 0x1000c69b4 
+  [PASS] DoIdle State 1: tract (0,0) fills fieldD1=64 (land at city corner) @ 0x1000c6dd8 
+  [PASS] DoIdle State 1: tract (5,5) fills fieldD1=64 (land at city (10,10)) @ 0x1000c6dd8 
+  [PASS] DoIdle State 1: tract (1,1) stays zero (all-water at city (2,2)) @ 0x1000c6dd8 
+  [PASS] DoIdle State 1: last tract (63,63) fills fieldD1=64 (out-of-range +1 sample reads land @ 0x10073562c) @ 0x1000c6dd8 
+  [PASS] DoIdle State 2 stores state 3 @ 0x1000c613f; exclusion seed stays zero @ 0x1000d7c7f 
+  [PASS] AddDistanceEffect distances 1/2/6 truncate 166.857/149.714/81.142 to 166/149/81 @ 0x1000d7c8f-0x1000d7cae 
+  [PASS] AddDistanceEffect distance 1 clamps 250 + 120 - 120/7 to 255 @ 0x1000d7cb2-0x1000d7cc1 
+  [PASS] Expand x-major four-neighbour pass and strict distance < maxDistance exact 5x5 result @ 0x1000d7d0c / 0x1000d7c8a 
+  [PASS] TractIsZoned any-cell half-open 2x2 tract scan: one zoned cell suffices @ 0x1000c6d54 / 0x100199e64 
+  [PASS] DoIdle State 3 completion resets slope iterator and stores state 5 @ 0x1000c6b63-0x1000c6b8b 
+  [PASS] DoIdle State 3 float-add/truncate 0+33.9->33, 33+65.7->98; average 98/2=49 @ 0x1000c62d5-0x1000c62f2 / 0x1000c6a93-0x1000c6aab 
+  [PASS] DoIdle State 3 fieldA8=5 buckets 33>>5=1 and 65>>5=2 @ 0x1000c62fa-0x1000c6330 
+  [PASS] DoIdle State 3 tied histogram selects earliest bucket 1; mode=(1<<5)+16=48 @ 0x1000c6ae1-0x1000c6b1c 
+  [PASS] DoIdle State 3 extrema include unzoned land 10.75 but exclude water tract altitude 130.2 @ 0x1000c6274-0x1000c62a7 
+  [PASS] DoIdle State 3 zero zoned samples reset iterator/statistics and arm all-land fallback @ 0x1000c6ab7-0x1000c6c1b 
+  [PASS] DoIdle State 3 fallback truncates sums -3/28/60/219, average 54.75, negative bucket->0 and bucket 4->last 3 @ 0x1000c62d5-0x1000c6330 
+  [PASS] DoIdle State 3 fallback mode bucket 0 center=16 and exact extrema/state-5 completion @ 0x1000c6ae1-0x1000c6b8b 
+  [PASS] DoIdle State 6 copies intrinsic +0x40 Data into +0x50 (assign @ 0x10010f188) and arms +0xc0 from +0xe8, state 7 @ 0x1000c66f0 
+  [PASS] DoIdle State 6 same-vector case skips the assign (addresses equal @ 0x1000c66cf) and advances to state 7 
+  [PASS] DoIdle State 8 sums +0x48 grid (10+20+30+45=105) over 4 zoned land tracts and truncates 105/4=26 into fieldC8 @ 0x1000c68a3-0x1000c6a10 
+  [PASS] DoIdle State 8 emits history id 0x6a663ac8 with the average and sends end-of-cycle msg 0x87cc75b3 @ 0x1000c6a2d / 0x1000c738e 
+  [PASS] DoIdle State 8 empty land pass leaves fieldC8=0 and still emits history/end-of-cycle @ 0x1000c6a0e 
+  [PASS] DoIdle State 5 fills slope grid: altitude=50x, 2-cell tract extremes 2 apart -> 100/2 = 50, state 4 @ 0x1000c662b-0x1000c667a / 0x1000c69e4 
+  [PASS] GetAreaSlope distance compress: 4-unit span > 3 -> *0.4 = 1.6; slope 400/1.6 ~= 250 @ 0x100147a5c-0x100147a6d 
+  [PASS] DoIdle State 4 intrinsic = min(255, working+40): 0/100/210/250 -> 40/140/250/255, working unchanged @ 0x1000c64b7-0x1000c64dd 
+  [PASS] DoIdle State 4 null curve [+0xd8]==0 skips apply and advances to state 6 @ 0x1000c6423-0x1000c642c 
+  [PASS] DoIdle State 7 dev A (weight 1): 0+0->1, 10+0, 30+0, 250+20->255, cursor->node1, state 7 @ 0x1000c6717-0x1000c6746 
+  [PASS] DoIdle State 7 dev B (weight 2): +10 each, 255 stays clamped, cursor->end, state 7 @ 0x1000c6753-0x1000c6972 
+  [PASS] DoIdle State 7 end sentinel fallback copies +0x50->+0x48, zeroes +0x80, stores state 8 @ 0x1000c68e5-0x1000c6947 
+  [PASS] ProcessTwoGridsWithCallback downsamples 4x4 tracts into 8x8 tracts (10 + 40 = 50) 
+  [PASS] cSC4Demand EndOfCycle/CalculateActiveDemand(false) exact formula 
+
+--- cSC4DemandSimulator runtime census/demand-index chain ---
+  [PASS] cSC4DemandSimulator census accumulates base 80+20=100, retained EQ 40+15=55, Co$$$ capacity 100 @ 0x100227bfe 
+  [PASS] cSC4DemandSimulator multi-hop 8->4->2 converges in 2 passes; strict 0.01 link delta is suppressed @ 0x100225380 
+  [PASS] cSC4DemandSimulator aggregate/supply/satisfaction links yield 100/100/20 and cap 0.25 in 3 passes @ 0x100225380 
+  [PASS] cSC4DemandSimulator neutral curve((200+100)+300)=600; update neutral=10 gives tax 0.75 and economy 0.75/0.5 @ 0x100225e44 / 0x10022718a 
+  [PASS] cSC4DemandSimulator DoIdle state 0 updates modifiers, zeros 24 census keys, enters state 1 @ 0x1002264b2 / 0x100224a42 
+  [PASS] cSC4DemandSimulator DoIdle state 1 scans two cells and reconciles 10/10 supply + 20 demand into state 2 @ 0x1002264b2 
+  [PASS] cSC4DemandSimulator DoIdle state 2 writes 18 history values: commercial 150, industrial 300, unemployment 50, enters state 3 @ 0x1002264b2 
+  [PASS] cSC4DemandSimulator DoIdle salary (100*10+100*60+100*140)/300 = 70 @ 0x1002267be-0x10022682c 
+  [PASS] Building development monthly construction resources clamp to 100..2000 
+  [PASS] Building development applies exact truncated growth/decline demand thresholds 
+  [PASS] cSC4TractDeveloper exact candidate scoring and ascending comparator 
+  [PASS] cSC4TractDeveloper exact GetBoundingRect orientation branches 
+  [PASS] cSC4TractDeveloper exact FindNetworks side order and type classes 
+  [PASS] cSC4TractDeveloper FindNetworks type-4 source-lot bounds branch 
+  [PASS] cSC4TractDeveloper FindNetworks clips all four city boundaries 
+  [PASS] cSC4TractDeveloper exact TestForCornerLot and corner-lot compatibility gate 
+  [PASS] cSC4TractDeveloper exact IsAggregationLegal rules and containment check 
+  [PASS] cSC4TractDeveloper exact aggregation origin shifts and subdivision legality 
+  [PASS] cSC4TractDeveloper exact FindExistingCapacity and redevelopment growth-stage gate 
+  [PASS] cSC4BuildingDevelopmentSimulator and cSC4GrowthDeveloper exact zone/stage compatibility 
+  [PASS] cSC4TractDeveloper exact IsLotSuitable cooldown, land-value, historical, and redevelopment gates 
+  [PASS] cSC4TractDeveloper exact LotConfiguration/Building compatibility, service caps, and PickBuilding capacity range 
+  [PASS] cSC4TractDeveloper exact Read/Write serialization and DoMessage yearly style rotation 
+  [PASS] cSC4TractDeveloper exact PickBuilding anchor family (0x3000) and style-percentage roll 
+  [PASS] cSC4TractDeveloper exact TakeOverAbandoned thresholds, dilapidated/historical eligibility, and service caps 
+  [PASS] cSC4TractDeveloper exact UpdatePopulation, Decline 60-day gate, Grow parameters, and BuildFarm resource gate 
+  [PASS] cSC4ResponseCurve exact binary search, interpolation, and clamping 
+  [PASS] curve fresh missing storage reports fault without changing output 
+  [PASS] curve unordered input terminates and interpolates NaN 
+  [PASS] curve unordered midX terminates and retains input predecessor NaN 
+  [PASS] curve unordered dy and dx skip segments 
+  [PASS] curve nonempty all-skipped input succeeds without backing slot 
+  [PASS] curve present empty property clears logical segments and retains Y7 
+  [PASS] curve all-skipped input preserves earlier backing-slot Y 
+  [PASS] curve next first accepted segment updates retained Y and copies preserve it 
+  [PASS] curve present raw property floors odd scalar count 
+  [PASS] curve epsilon binary32 neighbors distinguish flat from division 
+  [PASS] curve signed zeros preserve Y signs and positive zero slopes 
+  [PASS] curve duplicate x negative dy admits division by positive zero 
+  [PASS] curve skipped input remains predecessor for following accepted segment 
+  [PASS] cSC4GrowthDeveloper exact SimGrid Data ID mapping (0x01..0x06 + subType) 
+  [PASS] cSC4GrowthDeveloper exact desirability, DoIdle growth/decline list sorting, and stage-curve assignment 
+  [PASS] cSC4DemandSimulator exact PerformCensus EQ/capacity brackets and DoDemandIndexLinks fixed-point propagation 
+  [PASS] cSC4BuildingDevelopmentSimulator exact developer/wealth mapping, development map key, failure cooldown mask (0x47dc00), and max capacity per cell 
+  [PASS] cSC4DemandSimulator exact EvaluateConnectionUtilization log2/port/airport supply, regional census extrapolation, and average city salary 
+  [PASS] cSC4GrowthDeveloper UpdatePopulationCount capacity grid distribution and cSC4BuildingDevelopmentSimulator Grow tract-mark wrap-around 
+  [PASS] cSC4LotConfiguration object clamping and cSC4LotDeveloper boundary rules & world placement 
+  [PASS] cSC4TileInfo 5x5 meta-position tables roundtrip (rotate x4, mirror x2 = identity) 
+  [PASS] cSC4TileNeighborhoodCompact RUL token encoding (major/minor) and mirror involution 
+  [PASS] cSC4TileEvaluator RUL2 parse + transmogrify + straight-road lookup selects 0x05004b00 
+  [PASS] cSC4NetworkManager MapPreviewTexture/MapPath exact remap arithmetic 
+  [PASS] cSC4NetworkLotManager UpdateRoadStyle under-texture/variation tables (0x100a20490/0x100a20590) 
+
+--- 2. Steam SimCity 4 Deluxe Mach-O Binary & DBPF Archives ---
+  [PASS] Mounted Steam SimCity 4 Deluxe Edition.app 
+  [PASS] Mounted SimCity_1..5.dat, EP1.dat, Sound.dat, SimCityLocale.dat 
+  [PASS] Indexed > 110,000 DBPF TGI entries across GameData .dat files 
+  [PASS] Discovered 417 shipped .sc4 cities across 6 Regions 
+  [PASS] Parsed all 6 shipped config.bmp region layouts 
+  [PASS] Decoded shipped region dimensions from config.bmp headers 
+  [PASS] Parsed 64-bit Mach-O LC_SYMTAB from Sim City 4 Deluxe Editionsub 
+  [PASS] Verified 62,434 C++ symbols in Sim City 4 Deluxe Editionsub 
+  [PASS] Verified 194 GZCOM_Create* class factories 
+  [PASS] Extracted > 200 32-bit GZCLSIDs directly from x86_64 machine code 
+  [PASS] Machine code CLSID 0x8990c372 == cSC4City 
+  [PASS] Machine code CLSID 0xc9bd5d4a == cSC4Lot 
+  [PASS] Machine code CLSID 0xa9bd882d == cSC4BuildingOccupant 
+  [PASS] Machine code CLSID 0xc9c05c6e == cSC4NetworkOccupant 
+
+--- 3. GameData Asset Decoders (Exemplar, S3D, FSH, LTEXT) ---
+  [PASS] QFS-decompressed Exemplar (0x6534284a) from SimCity_1.dat 
+  [PASS] Parsed binary EQZB1### Exemplar properties Highway piece
+  [PASS] Loaded exact cSC4TractDeveloper scoring weights and style tunables from shipped exemplar (loaded=1, capacity=(1.000, 0.200), candidate=(10.000, 10.000))
+  [PASS] Loaded all 12 cSC4GrowthDeveloper desirability and stage-curve exemplars from SimCity_1.dat (group=0x67cd5fa1, loaded=12/12, totalStageCurves=76)
+  [PASS] Loaded cSC4DemandSimulator tunables (0x4a1f3ce6), all Demand EconomyLink exemplars, and building AgentEffects (loaded=1, specs=173, links=353, agentBldgs=46, agentEffects=279, neutralTax0=9.00)
+  [PASS] Loaded all shipped cSC4LotConfiguration exemplars (0x88edc900..0x88edcdff) and cSC4LotDeveloper tunables (lotConfigs=1908, lotObjects=72483, lotDevTuning=1, fndSlope=1.0)
+  [PASS] QFS-decompressed S3D mesh (0x5ad0e817) from SimCity_1.dat 
+  [PASS] Parsed 3DMD S3D HEAD/VERT/INDX/PRIM/MATS chunks 
+  [PASS] QFS-decompressed FSH texture (0x7ab50e44) from SimCity_2.dat 
+  [PASS] Decoded SHPI DXT1/DXT3 FSH texture to RGBA8 pixels 
+
+--- 4. Authentic .sc4 Save Decoder (Big City Tutorial.sc4) ---
+  [PASS] Rush Hour retains all 249 canonical building save records 
+  [PASS] Actual Rush Hour pollution F0 reference resolves exact building identity/exemplar 
+  [PASS] Resolved raw saved entries retain canonical order, types and payloads 
+  [PASS] Resolved saved age entry preserves literal 309d9e39 bytes without interpretation 
+  [PASS] Saved binding rejects null, zero, wrong-class and absent references 
+  [PASS] Copied city resolves into its own canonical record storage 
+  [PASS] Moved city resolves canonical records without a self-pointer index 
+  [PASS] Real-city reload replaces canonical collection and prior reference binding 
+  [PASS] Procedural reset invalidates saved bindings 
+  [PASS] Canonical decode failure after valid records exposes no partial binding collection 
+  [PASS] Successfully decoded empty collection is distinguishable from unavailable storage 
+  [PASS] Raw saved property duplicates are retained without inventing precedence 
+  [PASS] Duplicate building identities are ambiguous, never first-match resolved 
+  [PASS] Rejected archive reload invalidates canonical bindings 
+  [PASS] Saved-lot memory fixture canonical decode 
+  [PASS] Saved-lot source grid/lot fixture dimensions 
+  [PASS] Rush Hour saved building selects cell 38,115 lot 13a49798 flags 53 powered 
+  [PASS] All saved power-bit combinations, including unrelated flag bits 
+  [PASS] Null selected cell returns NoLot and false power despite overlapping lot bounds 
+  [PASS] Non-lot grid reference is unsupported 
+  [PASS] Missing referenced lot address is unsupported without bounds scan 
+  [PASS] Duplicate canonical lot addresses are ambiguous 
+  [PASS] Duplicate canonical building addresses are ambiguous for saved-lot query 
+  [PASS] Available zero building records differ from unavailable 
+  [PASS] Available zero lot records differ from unavailable 
+  [PASS] Saved grid requires exactly one zone record 
+  [PASS] Saved grid dimensions must match city on both axes 
+  [PASS] Negative, exact city limit and over-limit coordinates on both axes 
+  [PASS] Saved-cell zero, signed zero, fractional and near-limit boundaries 
+  [PASS] NaN coordinate follows reviewed integer-bit cell selection to out-of-range NoLot 
+  [PASS] Saved base.cellBounds bytes do not determine position 
+  [PASS] Null, wrong-class and absent building references are unsupported 
+  [PASS] Failed lot/grid decode after valid records publishes no partial snapshot 
+  [PASS] Failed canonical building decode makes saved lot query unavailable 
+  [PASS] Missing canonical building, lot or grid storage is unavailable 
+  [PASS] Restore saved snapshot for ownership checks 
+  [PASS] Copy/move construction and assignment own snapshots; returned values survive reset 
+  [PASS] Different-city reload replaces all saved snapshot bindings 
+  [PASS] Failed file open clears previously valid saved snapshots 
+  [PASS] Rejected archive load clears previously valid saved snapshots 
+  [PASS] missing capacity 
+  [PASS] missing capacity skips power 
+  [PASS] local key wins despite distinct embedded ID 
+  [PASS] embedded ID is not holder key 
+  [PASS] default lookup 
+  [PASS] unsigned saved lower bound 
+  [PASS] unsigned default lower bound 
+  [PASS] unsigned saved lower bound 
+  [PASS] unsigned default lower bound 
+  [PASS] unsigned saved lower bound 
+  [PASS] unsigned default lower bound 
+  [PASS] unsigned saved lower bound 
+  [PASS] unsigned default lower bound 
+  [PASS] Uint32 adapter three source types 
+  [PASS] Uint32 adapter three source types 
+  [PASS] Uint32 adapter three source types 
+  [PASS] float invalid/signed zero to Uint32 low word 
+  [PASS] float invalid/signed zero to Uint32 low word 
+  [PASS] float invalid/signed zero to Uint32 low word 
+  [PASS] saved power false 
+  [PASS] NoLot is false 
+  [PASS] power unavailable distinct 
+  [PASS] power unsupported distinct 
+  [PASS] missing power provider 
+  [PASS] DB08 not missing 
+  [PASS] unqueried DB08 retained 
+  [PASS] one-element scalar array not flattened 
+  [PASS] reference not missing 
+  [PASS] duplicate saved keys 
+  [PASS] duplicate default keys 
+  [PASS] non-null parent 
+  [PASS] default reference flag 
+  [PASS] trailing data 
+  [PASS] cohort unsupported 
+  [PASS] text unsupported 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] every truncation prefix 
+  [PASS] count bounded before allocation 
+  [PASS] array count bounded before allocation 
+  [PASS] unskippable DB type 
+  [PASS] unqueried string retained 
+  [PASS] queried string unsupported 
+  [PASS] default raw curve count boundary 
+  [PASS] saved raw curve count boundary 
+  [PASS] default raw curve count boundary 
+  [PASS] saved raw curve count boundary 
+  [PASS] default raw curve count boundary 
+  [PASS] saved raw curve count boundary 
+  [PASS] default raw curve count boundary 
+  [PASS] saved raw curve count boundary 
+  [PASS] default raw curve count boundary 
+  [PASS] saved raw curve count boundary 
+  [PASS] default raw curve count boundary 
+  [PASS] saved raw curve count boundary 
+  [PASS] Float32 adapter three source types 
+  [PASS] Float32 adapter three source types 
+  [PASS] Float32 adapter three source types 
+  [PASS] missing float leaves initial zero input 
+  [PASS] raw Float32 input matches direct method 
+  [PASS] raw Float32 input matches direct method 
+  [PASS] raw Float32 input matches direct method 
+  [PASS] raw Float32 input matches direct method 
+  [PASS] raw curve signed zero and NaN payload matches direct method 
+  [PASS] raw curve signed zero and NaN payload matches direct method 
+  [PASS] raw curve signed zero and NaN payload matches direct method 
+  [PASS] raw curve signed zero and NaN payload matches direct method 
+  [PASS] raw curve signed zero and NaN payload matches direct method 
+  [PASS] unsupported curve input preserved 
+  [PASS] absent curve skips unsupported input 
+  [PASS] persistent capacityAccess unchanged 
+  [PASS] local access overrides persistent seam 
+  [PASS] nonnull persistent seam unchanged 
+  [PASS] undecoded city unavailable 
+  [PASS] mount original read-only data 
+  [PASS] load actual Rush Hour fixture 
+Rush Hour saved query status=0 value=4999
+  [PASS] actual public query accepts saved DB08 and raw default curve 
+  [PASS] exact TGI fixture 
+  [PASS] wrapper matches direct saved snapshot 
+  [PASS] exact TGI absent unavailable 
+  [PASS] city persistent capacityAccess unchanged 
+aging_math checks=153810 fnv1a64=b2c4d197b2624373 random=100000
+  [PASS] Pollution aging arithmetic @0x100099c88 boundary corpus 
+  [PASS] actual import coefficients all five fields 
+  [PASS] independent import 
+  [PASS] offline predicted age, not live observation 
+  [PASS] zero capacity still ages through actual kernels 
+  [PASS] stable property and variant 
+  [PASS] retained and city independent 
+  [PASS] unrelated/default/lot unchanged 
+  [PASS] ordered trace and skipped notification boundary 
+  [PASS] retained second offline execution 
+  [PASS] valid zero 
+  [PASS] missing preserves initialized output 
+  [PASS] unmodeled is unsupported 
+  [PASS] excluded writes no mutation 
+  [PASS] coefficient mismatch no publication 
+  [PASS] alias fixture import 
+  [PASS] default shared alias mutation 
+  [PASS] local shadow wins 
+  [PASS] unsupported tag rejected without mutation 
+  [PASS] execution does not relabel missing as valid zero 
+  [PASS] distinct properties sharing variant retain alias 
+  [PASS] lower exact/over/unordered selection 
+  [PASS] preflight mutation boundary 
+  [PASS] lower exact/over/unordered selection 
+  [PASS] preflight mutation boundary 
+  [PASS] lower exact/over/unordered selection 
+  [PASS] preflight mutation boundary 
+  [PASS] exact upper rejects before write 
+  [PASS] NaN upper does not skip satisfied lower 
+  [PASS] unordered age skips thresholds preserving payload 
+  [PASS] actual capacity input consumed 
+  [PASS] captured scale is consumed 
+  [PASS] owned capacity response curve evaluated 
+  [PASS] used getter and nonzero factor consumed 
+  [PASS] needs power without power 
+  [PASS] no power needed 
+  [PASS] missing lot is unpowered 
+  [PASS] factor result is MUL destination 
+  [PASS] failed file load discards old imported aging state 
+  [PASS] archive load attempt discards old imported aging state 
+  [PASS] new procedural city discards old imported aging state 
+Sint32 scalar boundary corpus: 65805 checks, 0 failures
+  [PASS] Sint32 scalar getter complete boundary and excluded-tag corpus 
+  [PASS] Loaded City - Big City Tutorial.sc4 
+  [PASS] Decoded RegionalCity Name == 'Big City Tutorial' 
+  [PASS] Decoded RegionalCity Mayor == 'Jonas Sparks' 
+  [PASS] cSC4Lot +0xce/+0xcf is an anchor cell, so lot size comes from the bounds lotArea=6894
+  [PASS] Decoded 129x129 float32 terrain heightmap -> 128x128 Medium City 
+  [PASS] Decoded exact R/C/I populations (22,618 / 3,727 / 10,638) 
+  [PASS] Decoded cSC4BudgetSimulator treasury == 1,035,332 Simoleons 
+  [PASS] Decoded cSC4BudgetSimulator (0xe990be01) version>=4 save record from .sc4 (version=5, funds=1035332, depts=18, bonds=0, groups=7, tax0=8.00)
+  [PASS] Loaded cSC4BudgetSimulator tunables from shipped exemplar (0x0bff6824) (rate=0.0850, term=120, minFunds=-100000, wealthFactors=3, capFactors=3)
+  [PASS] cSC4BudgetSimulator ComputeTax exact float-magic assessed value and /1200 income 
+  [PASS] cSC4BudgetSimulator GetMonthlyPaymentForLoan amortization (rate/12, pow(1+r,-term)) 
+  [PASS] IssueBond zero-round-up issues one denomination bond @ 0x100222018 
+  [PASS] IssueBond rounded principal == denomination @ 0x100222018 
+  [PASS] IssueBond amount above max bond size -> false @ 0x10022201f 
+  [PASS] IssueBond exact multiple within limit -> true 
+  [PASS] IssueBond post-add borrowing-limit compare rejects oversize @ 0x10022203b 
+  [PASS] IssueBond within remaining capacity -> true 
+  [PASS] IssueBond debt grows by principal @ 0x10022214d 
+  [PASS] IssueBond zero amount -> false @ 0x100221ff0 
+  [PASS] department incomes sum into the monthly income total @ 0x100220742 
+  [PASS] department incomes flow through to funds @ 0x100220742 
+  [PASS] zero department incomes keep the legacy income total @ 0x100220742 
+  [PASS] negative department incomes subtract unclamped @ 0x100220742 
+  [PASS] cIGZIStream::GetError() returns 0 on a healthy stream (binary idiom: !GetError()) 
+  [PASS] cIGZIStream::GetError() nonzero after an overrun read (sticky error) 
+  [PASS] cIGZOStream::GetError() is 0 for the vector-backed output stream 
+  [PASS] failure path resets 15 statics to defaults, keeps (0,0) static curves + identity record curves, field2E0 untouched @ 0x100095b0a 
+  [PASS] second call resets all statics but leaves instance field2E0; adjacent prop IDs 0x49134bd4/0x49134bdd land in distinct fields @ 0x100095943-0x100095bf 
+  [PASS] loader passes NaN and -0.0f through verbatim, no clamps @ 0x100095b29/0x100095c19 
+  [PASS] eatGarbage block A room==garbage early-return: only export consumed @ 0x10009a365 
+  [PASS] eatGarbage pool==garbage zero-path zeroes wte pool without eating; incinerator floor-eats @ 0x10009a38c/0x10009a413 
+  [PASS] eatGarbage floor-consumes 10 but accumulates the full float 10.7 @ 0x10009a3a9-0x10009a3d2 
+  [PASS] eatGarbage abduction cmpnless blend is MAX not min: eats budget 50 from garbage 10 @ 0x10009a5a1-0x10009a5ac 
+  [PASS] eatGarbage NaN input skips all consumers via unordered jbe guards @ 0x10009a303 
+  [PASS] maintenance cost = cvttss2si(curve(100)=5 * (f32)200) = 1000 @ 0x10009a1aa-0x10009a1b8 
+  [PASS] missing f32 prop: false but cost RETAINS the first property's value (out untouched on failure) @ 0x10009a166 
+  [PASS] missing curve prop: false, cost retained @ 0x10009a180 
+  [PASS] missing i64 prop on the first read: false with cost untouched @ 0x10009a151 
+  [PASS] Cvttss2siI64: NaN/overflow -> INT64_MIN, truncation toward zero @ 0x10009a1b3 
+  [PASS] AddToGarbageSupply non-negative amount ADDS (jns skips only the negative clamp) @ 0x10009abea 
+  [PASS] AddToGarbageSupply oversize negative clamps supply to 0 @ 0x10009abf4-0x10009abfb 
+  [PASS] AddToGarbageSupply in-range negative subtracts @ 0x10009abf9 
+  [PASS] GetGarbageSupply negative supply returns 0 AND dirty-writes field34C to 0 @ 0x10009ac06 
+  [PASS] GetPollutionGrid routes Radiation to gridRefs78, Air to gridRefs98 @ 0x10009ac22-0x10009ac40 
+  [PASS] GetWorstAirTract u16 zero-extends coords, i32 value @ 0x10009ae46 
+  [PASS] GetGarbageBuildings appends listD8, listF0, list108 in order @ 0x10009ac48 
+  [PASS] GetRequestedShare 4x32767 sum / unsigned area 4 / 32767.0f -> curve(1)=1 @ 0x10009ad5c 
+  [PASS] GetRequestedShare zero garbage tiles -> zero share @ 0x10009ad5c 
+  [PASS] Decoded cSC4LandValueSimulator (0xe990c18e) v1 record, byte-exact roundtrip 
+  [PASS] Decoded cSC4CommercialSimulator (0x8990c080) v1 record, byte-exact roundtrip 
+  [PASS] Decoded cSC4IndustrialSimulator (0xa990c022) v1 record (version word only) 
+  [PASS] Decoded cSC4FireProtectionSimulator (0x2990c05a) v2 record (+Protection base v3), Write upgrades to v3 
+  [PASS] Decoded cSC4PoliceSimulator (0x6990c04f) v7 record (+Protection base v3), Write upgrades to v8 
+  [PASS] Decoded cSC4FlammabilitySimulator (0xe990c045) v2 record, byte-exact roundtrip 
+  [PASS] Decoded cSC4CrimeSimulator (0x8990c09a) v6 record with 24 crime events, byte-exact roundtrip (events=24 firstName=####)
+  [PASS] Decoded cSC4AuraSimulator (0x0990bdd8) v9 record (7 SimGrid refs + grid map), byte-exact roundtrip 
+  [PASS] Decoded cSC4PowerSimulator (0x0990c005) v6 record, byte-exact roundtrip (grid=128x128 entries=4 poles=0)
+  [PASS] Decoded cSC4PlumbingSimulator (0x0990c075) v4 record (128x128 byte grid + water producers), byte-exact roundtrip (grid=128x128 producers=0 refs=483)
+  [PASS] Decoded cSC4PollutionSimulator (0x8990c065) v4 record, byte-exact roundtrip 
+  [PASS] Decoded cSC4ResidentialSimulator (0x4990c013) v7 record (2x tDepartmentData), byte-exact roundtrip 
+  [PASS] Decoded full cSC4TrafficSimulator (0x6990c1aa) v40 transit graph (zero opaque bytes, byte-exact 1.86 MB roundtrip + v41 upgrade) (v=40 grid=130x130 edgeDensities=26185 switches=1 rules=20 v41Bytes=1858654)
+  [PASS] Decoded cSC4CivicBuildingSimulator (0x0a413481) v6 record, byte-exact roundtrip (unlocked=1 statuses=59 zoos=0 civics=1)
+  [PASS] Decoded cSC4FloraSimulator (0xc990c034) v2 record, byte-exact roundtrip (randIndices=4096 occupants=0 rng=(386263171,4276082661))
+  [PASS] Decoded cSC4NeighborsSimulator (0xc990c0a4) v2 record, byte-exact roundtrip (connections=13)
+  [PASS] Decoded cSC4OrdinanceSimulator (0xa990c08e) v4 record, byte-exact roundtrip (exp=0 inc=0 ordinances=20)
+  [PASS] Decoded cSC4WeatherSimulator (0x2990c1bc) v2 record, byte-exact roundtrip (cells=128x128 moisture=128x128 humidity=0.600 wind=3.32)
+  [PASS] Decoded weather record executes four coordinate adapters, preserving native X reuse @ 0x1000e487a/0x1000e4896/0x1000e48ba/0x1000e48d0 
+  [PASS] cSC4MySimAgentSimulator (0x29e37dec) v1 Read/Write roundtrip 
+  [PASS] cSC4GameOfLifeSimulator blinker oscillator & cell-age increment (@ 0x1002fca8e) 
+  [PASS] cSC4RigidBodySimulator2D AdvanceTime & DoCollisions (@ 0x100700bfc / 0x100700ee2) 
+  [PASS] cSC4City exposes decoded civic & utility simulator save records 
+  [PASS] Loaded Power/Plumbing/Pollution tunables from shared shipped exemplar 0xc911e35b (power314=2 power318=110.000 plumbF8=7 pollutionProps=58)
+  [PASS] Loaded LandValue/Crime/Aura/Police/Fire/Flammability/Residential/Traffic/Flora/Weather/Simulator tunables from shipped exemplars 
+  [PASS] cSC4Simulator (0x2990c1e5) v4 byte-exact Read/Write roundtrip & speed gating (@ 0x1001efd52 / 0x1001f05d6 / 0x1001f0b22) 
+  [PASS] Exact binary network RUL mirror/patch/zone-priority & all 24 shipped network RULs + MultitypeRules (ruls=24/24 totalRules=6255 multitype=1292 zone=2 patch=1)
+  [PASS] Loaded cSC4BuildingDevelopmentSimulator tunables from shipped exemplar (loaded=1, min=8192, max=20480, multiplier=0.500, steps=10)
+  [PASS] Found cSC4Simulator version-4 save subfile (version 4, 91 bytes)
+  [PASS] Decoded cSC4Simulator version-4 cRZDate Julian day 
+  [PASS] Decoded cSC4TractDeveloper (0x2990c142) saved style state from .sc4 save (bytes=39, styles=3, currentStyle=0x2000, yearsBetween=5)
+  [PASS] Loaded shipped RoadSimple RUL2 (0x0a5bcf4b/0xaa5bcf57/7) into cSC4TileEvaluator (bytes=14433, rules=412)
+  [PASS] Loaded shipped Network INI texture/shadow/path remapping tables (iniBytes=21265 texture=3 shadow=110 path=16, override=1 conflicts=828)
+  [PASS] Loaded shipped RUL0 RuleOverrides tile-conflict table (iniBytes=21265 texture=3 shadow=110 path=16, override=1 conflicts=828)
+  [PASS] Loaded shipped cSC4NetworkLotConfiguration exemplars (ExemplarType 0x21) (configs=540)
+  [PASS] Decoded cSC4NetworkLotManager (0xe9a6cd3b) version-2 save record from .sc4 (bytes=24648, lots=1759, effects=0, roundtrip=1)
+  [PASS] Decoded cSC4BuildingDevelopmentSimulator (0x8990be7a) & all 12 cSC4GrowthDeveloper (0x0990c138) links from .sc4 save (devs=12, matched=12, stages=12, marks=9, declines=0, validGrids=1)
+  [PASS] Decoded cSC4DemandSimulator (0x2990bff2) demand map, census snapshot, and connection bonuses from .sc4 save (demands=173, validRefs=173, census=24, comConn=0.0, indConn=0.0)
+  [PASS] Decoded cSC4LotDeveloper (0xa990bfe0) building queue and cSC4LotConfigurationManager (0x299062c0) from .sc4 save (bldgQueue=3427, validRefs=3427, curIdx=0, nightMode=0, bldgDevSim=0x8990be7a)
+  [PASS] Decoded all 174 separately persisted cSC4Demand objects 
+  [PASS] Decoded complete cSC4Demand supply/demand/modifier record layout 
+  [PASS] Decoded saved R/C/I demand IDs and Float32 values 
+  [PASS] Distinguished cSC4Demand supply, raw demand, and active demand fields 
+  [PASS] Recalculated saved aggregate demand with decompiled active-demand formula 
+  [PASS] Original-save simulation preserves decoded census and demand pending exact phase updates 
+  [PASS] Building development runs exact aggregate-demand resource calculation on monthly event 
+  [PASS] Evaluated all 12 cSC4GrowthDeveloper growth/decline lists and daily tract marks on Big City Tutorial.sc4 (tunings=12, growthLists=12, growthItems=1082, declineItems=1300, attempts=42)
+  [PASS] Decoded all 3,569 cSC4Lot records 
+  [PASS] Decoded > 3,400 cSC4BuildingOccupant records 
+  [PASS] Resolved > 1,000 building Exemplar -> S3D -> FSH asset chains 
+  [PASS] Decoded >= 2,685 cSC4NetworkOccupant road/rail/street tiles 
+  [PASS] Decoded cSC4EdgeConnectionStore network types (road/street/rail) roads=1323 streets=1873 rails=139
+  [PASS] cSC4Lot bounds/altitude decoded via LotFullSaveRecord::Read badLots=0
+  [PASS] cSC4NetworkOccupant corner vertices sit on terrain offTerrain=0
+  [PASS] Decoded > 2,000 cSC4FloraOccupant trees 
+  [PASS] Decoded > 50,000 cSC4PropOccupant street/lot props 
+  [PASS] Extracted embedded PNG city thumbnail (0x8a2482b9) 
+  [PASS] Region View streams embedded city PNG thumbnails by city index 
+  [PASS] Decoded embedded cSC4SimGrid<Sint8/Uint8/Sint16/Uint16/Float32> subfiles from .sc4 save 
+  [PASS] Verified decompiled Protection, LandValue, Commercial, Police, Crime, and Aura simulation algorithms 
+  [PASS] Verified decompiled cSC4Simulator agent/pause/speed, cSC4CommercialSimulator::DoIdle, cSC4FlammabilitySimulator hotspots, and cSC4OrdinanceSimulator cumulative effects 
+  [PASS] M2 unmodified SaveToSC4File is byte-identical to the source archive (@ 0x10036a4ac) 
+  [PASS] M2 modified save preserves all 133 source type IDs and original index order (@ 0x10036a7c5) 
+  [PASS] M2 clone patches only the raw budget record; every other stored entry is byte-identical (@ 0x10036b62f) 
+  [PASS] M2 regenerated DIR removes exactly the budget TGI and preserves all other records (@ 0x10036b62f) 
+  [PASS] M2 dirty budget framing CRC is self-consistent with ComputeSC4RecordCRC (@ 0x1003d0df1) 
+  [PASS] M2 modified save reloads with residential-low tax rate 9.0 (@ 0x100221fb2) 
+  [PASS] M2 IssueBond persists treasury/bond, patches only budget, and removes exactly its DIR record (@ 0x100221fdc) 
+  [PASS] M2 modified header clones dates, zeroes holes, and rebuilds count/index fields (@ 0x10037020f) 
+  [PASS] M2 interop save ready for original SimCity 4 Deluxe /Users/russellmartin/Personal/OpenSC4/build/m2_interop_test.sc4
+  [PASS] SaveToSC4Buffer preserves cSC4BudgetSimulator, cSC4Simulator, cSC4TrafficSimulator, and all civic simulator records 
+  [PASS] Decoded & byte-exact roundtripped 100% of all 133 Type IDs (179 subfiles) in Big City Tutorial.sc4 (subfiles=179, types=133, records=93558/93558, byteExact=93554/93554)
+  [PASS] Decoded & byte-exact roundtripped 100% of all 146 Type IDs across all 417 shipped .sc4 cities (cities=417, subfiles=49096, types=146, records=2190688/2190688, byteExact=2185774/2185774)
+
+--- 4b. Mach-O Symbol-Indexed Decompilation Catalog (Sim City 4 Deluxe Editionsub) ---
+  [Decompilation Pipeline Tiers]
+    Tier 1: Core SC4 Simulation, World, Network, Automata & Terrain   5155 /  5155 syms (100.0%)   2277.0 /  2277.0 KB
+    Tier 2: UI Windows, 3D View/Render, Audio & Lua/Effects           4424 /  4424 syms (100.0%)   1752.2 /  1752.2 KB
+    Tier 3: Auto-Verified GZCOM Boilerplate & <=48B Leaf Accessors    6872 /  6872 syms (100.0%)    247.0 /   247.0 KB
+    Tier 4: Superseded cGZ/cRZ Framework, DX7 Shim, Thunks & STL       660 / 26882 syms (  2.5%)    118.8 /  5120.0 KB
+  [Target Subsystems]
+    Simulators, Developers, Budget & Ordinances     2296 /  2296 syms (100.0%)    673.7 /   673.7 KB
+    City, Lots, Zones, Neighbors & Occupants        1955 /  1955 syms (100.0%)    394.7 /   394.7 KB
+    Networks, Traffic & PathFinder                  1084 /  1084 syms (100.0%)    408.8 /   408.8 KB
+    Automata, Vehicles & Dispatch                   1562 /  1562 syms (100.0%)    496.3 /   496.3 KB
+    Advisors, Advice, MySims & Tutorials             826 /   826 syms (100.0%)    258.7 /   258.7 KB
+    Disasters & Emergency Instances                  384 /   384 syms (100.0%)     51.5 /    51.5 KB
+    UI, Views, Windows, Camera & Tools              2218 /  2292 syms ( 96.8%)    808.6 /   820.6 KB
+    cSTETerrain & cS3D 3D Scene Graph                899 /   899 syms (100.0%)    218.7 /   218.7 KB
+    Gonzo/Rizzo (cGZ/cRZ) COM & Resource Framework   597 /  9515 syms (  6.3%)     51.0 /  1730.7 KB
+    Hit/Fresh Interactive Audio Engine               772 /   876 syms ( 88.1%)    108.7 /   116.5 KB
+    Lua 4.0 Scripting & Visual Effects               840 /  1125 syms ( 74.7%)    166.0 /   208.0 KB
+    macOS DirectX7/OpenGL Compatibility Layer          1 /   526 syms (  0.2%)      0.0 /    69.0 KB
+    Other cSC4 Classes & Engine Free Functions      3670 /  7485 syms ( 49.0%)    754.9 /  2719.1 KB
+  [PASS] Verified Mach-O LC_SYMTAB 4-Tier decompilation pipeline & x86_64 leaf auto-verifier (textSyms=43333, targetSyms=30825, decompiled=17104 [4391.5 KB / 8166.2 KB], autoLeaves=4965, validAddrs=11798/11798)
+
+--- 5. OpenGFX Procedural Fallback, Tools & .sc4 Save Roundtrip ---
+  [PASS] Generated playable 128x128 OpenGFX procedural city (lots=768, buildings=7, networks=1532, attempts=0, executions=0, resources=100.0)
+  [PASS] ApplyTool(ZoneComHigh) creates empty zoned lots 
+  [PASS] Daily growth develops one road-access lot using weighted active demand 
+  [PASS] Road auto-tiler selects shipped Maxis straight FSH 0x05004b00 
+  [PASS] Road auto-tiler selects and orients shipped Maxis 90-degree curve FSH 
+  [PASS] Road auto-tiler selects shipped Maxis four-way intersection FSH 0x05020700 
+  [PASS] SaveToSC4Buffer serialized valid DBPF .sc4 archive 
+  [PASS] Re-opened serialized .sc4 DBPF archive in memory 
+  [PASS] Roundtrip .sc4 city loaded cleanly 
+  [PASS] cSC4Simulator calendar reaches leap day after 59 days from 2000-01-01 (got 2000-02-29, JDN 2451604)
+  [PASS] cSC4Simulator calendar advances leap day to March 1 (got 2000-03-01, JDN 2451605)
+  [PASS] Emitted exact daily/weekly/monthly/yearly cadence across leap-day boundary 
+  [PASS] Building development daily/monthly cadence follows cSC4Simulator events 
+  [PASS] cSC4Simulator calendar emits yearly event on 2001-01-01 
+  [PASS] cSC4PathFinder::DistanceToRectangle (@ 0x1000d3b32) exact Manhattan distance 
+  [PASS] cSC4PathFinder::FindPath (@ 0x1000d2644) A* search & GetCompressedRoute (@ 0x1000d434e) 
+  [PASS] cSC4VertexHtConstraintSatisfier::Solve (@ 0x1001bdebe) equality/range/slope propagation 
+  [PASS] cSC4ZoneDeveloper::SimpleParcellize (@ 0x10012c320) & DetermineLotSize (@ 0x10012d606) 
+  [PASS] SC4 Free Functions: SC4GetResourceIDFromString CRC24 (@ 0x10003a532) & SC4MakeMoneyString (@ 0x1000392b0) 
+  [PASS] cSC4City live Mayor Controls (SetTaxRate, IssueBond, QueryTile) & simulator cadence 
+  [PASS] SetTaxRate seeds both budget fund fields, so the monthly step keeps the treasury seeded=96280 after=96883
+  [PASS] Bulldozing the only power plant cuts power to the whole grid before=4508 after=0
+  [PASS] cSC4GLCityRenderer S3D/FSH GPU texture batch builder (untexturedVerts=139332, texturedBatches=12, texturedVerts=115488)
+  [PASS] cSC4City live Power/Water BFS & cSC4PathFinderEngine A* commute routes (poweredCells=4508, wateredCells=169, commuteRoutes=2)
+  [PASS] cSC4City live Ordinance toggle & Disaster spawner 
+PositionToCell: 38 cases, 114 checks, 0 failures
+  [PASS] Weather PositionToCell boundary checks @ 0x1000e487a 
+CellToPosition: 159 checks, 0 failures
+  [PASS] Weather CellToPosition boundary checks @ 0x1000e4896 
+  [FAIL] Weather CellToStandardCityCell boundary checks @ 0x1000e48ba 
+StandardCityCellToCell: 24 cases, 0 failures
+  [PASS] Weather StandardCityCellToCell boundary checks @ 0x1000e48d0 
+
+================================================================
+
+--- cSTETerrain runtime foundation (M3) ---
+  [PASS] cSTETerrain default-constructed uninitialized @ 0x100740e24 
+  [PASS] cSTETerrain::Init(4,4) @ 0x100739cb0 
+  [PASS] cSTETerrain initialized after Init @ 0x100740e24 
+  [PASS] cSTETerrain::Init cell counts +0x40/+0x44 @ 0x100739d35/0x100739d48 
+  [PASS] CellHasWater all-four-corners-water @ 0x10073562c 
+  [PASS] CellHasWater any-corner-water @ 0x10073562c 
+  [PASS] CellHasWater all-corners-dry -> false @ 0x10073562c 
+  [PASS] CellHasWater out-of-range -> false @ 0x10073562c 
+  [PASS] CellHasLand all-corners-dry -> true @ 0x1007356a2 
+  [PASS] CellHasLand all-corners-wet -> false @ 0x1007356a2 
+  [PASS] CellHasLand mixed shoreline cell is both land and water @ 0x1007356a2 
+  [PASS] CellHasLand NaN-depth corner -> land (unordered jae) @ 0x1007356a2 
+  [PASS] CellHasWater NaN-depth corners -> not water (ordered ja) @ 0x10073562c 
+  [PASS] CellHasLand out-of-range -> false @ 0x1007356a2 
+  [PASS] GetAltitude corner (0,0) == 0 @ 0x100738928 
+  [PASS] GetAltitude vertex (16,0) == 3 @ 0x100738928 
+  [PASS] GetAltitude vertex (0,16) == 5 @ 0x100738928 
+  [PASS] GetAltitude midpoint (8,8) == 4 @ 0x100738928 
+  [PASS] GetAltitude edge midpoint (8,0) == 1.5 @ 0x100738928 
+  [PASS] GetAltitude edge midpoint (0,8) == 2.5 @ 0x100738928 
+  [PASS] GetAltitude interior cell (24,24) == 12 @ 0x100738928 
+  [PASS] GetAltitude absent model storage returns +0 (clean-room fallback, not authentic) 
+  [PASS] GetAltitude signed-zero max tie selects fracZ (cmpnless imm06) @ 0x100738a41 
+  [PASS] GetAltitude signed-zero min tie selects fracX (jb not taken) @ 0x100738a52 
+  [PASS] GetAltitude nonplanar cell exercises both diagonals, equality and final-cell clamp @ 0x100738a34 
+  [PASS] GetAltitude inclusive extent and just-inside rounding crossings @ 0x100740e7a 
+  [PASS] GetAltitude negative and nextafter-outside coordinates return +0 @ 0x100740e7a 
+  [PASS] GetAltitude NaN and infinity coordinates rejected before indexing @ 0x100740e7a 
+  [PASS] GetAltitude distinct X/Z extents preserve rectangular bounds @ 0x100740e7a 
+  [PASS] GetAltitude(vertex 12) == 16 @ 0x100738a84 
+  [PASS] GetAltitude out-of-range vertex -> 0 @ 0x100738a84 
+  [PASS] GetAltitudeAtVertex(2,2) == 16 @ 0x100738aa6 
+  [PASS] BrushFnRain returns false even when applied @ 0x10073083e 
+  [PASS] BrushFnRain adds amount/10 (20/10=2) to depth @ 0x10073083e 
+  [PASS] BrushFnRain no-op when flag matches target @ 0x10073083e 
+  [PASS] BrushFnVolcanoAsh applies @ 0x100733338 
+  [PASS] BrushFnVolcanoAsh sets 0x400 bit in flags word @ 0x100733338 
+  [PASS] BrushFnVolcanoAsh zero flag -> false @ 0x100733338 
+  [PASS] BrushFnLevel applies @ 0x100733230 
+  [PASS] BrushFnLevel lowers by flag*amount/256 toward target @ 0x100733230 
+  [PASS] BrushFnLevel water depth updated on lower @ 0x100733230 
+  [PASS] BrushFnLevel snaps to target via vtable+0x188 (exact SetAltitude leaves dry-land depth unchanged) @ 0x100733230/0x10073e192 
+  [PASS] BrushFnLevel zero diff -> false @ 0x100733230 
+  [PASS] BrushFnLakeBed applies @ 0x100733360 
+  [PASS] BrushFnLakeBed raises by |delta|/16 toward target @ 0x100733360 
+  [PASS] BrushFnLakeBed water depth updated @ 0x100733360 
+  [PASS] BrushFnLakeBed refuses to raise a submerged vertex @ 0x100733360 
+  [PASS] BrushFnLakeBed zero delta -> false @ 0x100733360 
+  [PASS] ApplyBrushEffect Spring delegates to CreateSpring @ 0x100730b16 
+  [PASS] CreateSpring adds 1.0f to the spring grid per call @ 0x100730b16 
+  [PASS] CreateSpring leaves the water depth grid untouched @ 0x100730b16 
+  [PASS] M4 pair-diff: both Konradshohe archives parse via the OpenSC4 reader @ 0x10036a4ac 
+M4 pair-diff inventory: pristine=187 records, fresh=153 records
+  [PASS] Oracle checkpoint: live game-written save parses via the OpenSC4 reader 
+Oracle checkpoint: 2979 records, size /Users/russellmartin/.opensc4-oracle/checkpoints/Konradshohe_JDN2461688.sc4
+  [PASS] ApplyBrushEffect Paint stub returns false @ 0x100732d22 (TODO) 
+  [PASS] CellHasLand all-corners-wet -> false @ 0x1007356a2 
+  [PASS] CellHasLand any-corner-dry -> true @ 0x1007356a2 
+  [PASS] CellHasLand ignores altitudes and seaLevel (depth grid only) @ 0x1007356a2 
+  [PASS] CellHasLand out-of-range -> false @ 0x1007356a2 
+  [PASS] GetWaterLevel vertex (16,0) == altitude+depth at vertex (1,0) == 2 @ 0x100739a68 
+  [PASS] GetWaterLevel vertex (0,16) == altitude+depth at vertex (0,1) == 3 @ 0x100739a68 
+  [PASS] GetWaterLevel edge midpoint (8,0) == altitude+depth at vertex (0,0) == 0 @ 0x100739a68 
+  [PASS] GetWaterLevel edge midpoint (0,8) == altitude+depth at vertex (0,0) == 0 @ 0x100739a68 
+  [PASS] GetWaterLevel cell center (8,8) == altitude+depth at vertex (0,0) == 0 @ 0x100739a68 
+  [PASS] GetWaterLevel interior cell (24,24) == altitude+depth at vertex (1,1) == 13 @ 0x100739a68 
+  [PASS] BrushFnRaiseLower raises when ctxFlag > targetFlag @ 0x1007329cc 
+  [PASS] BrushFnRaiseLower amount = amount * ctxFlag (5*2=10) @ 0x1007329cc 
+  [PASS] BrushFnRaiseLower updates water depth = seaLevel - newAlt @ 0x1007329cc 
+  [PASS] BrushFnRaiseLower lowers when ctxFlag < targetFlag @ 0x1007329cc 
+  [PASS] BrushFnRaiseLower lower clamps to kMinTerrainHeight (shipped 5.0f) @ 0x100734c7c/0x100b17640 
+  [PASS] BrushFnRaiseLower updates water depth on lower (seaLevel 0 - 5) @ 0x100734c7c 
+  [PASS] BrushFnRaiseLower no-op when flags equal @ 0x1007329cc 
+  [PASS] BrushFnRaiseLower clamps to kMaxTerrainHeight (shipped 200.0f) @ 0x100734cde/0x100b1763c 
+  [PASS] BrushFnRaiseLower water depth clamped @ 0x100734cde 
+  [PASS] BrushFnRaiseLower clamps to kMinTerrainHeight (shipped 5.0f) @ 0x100734c7c/0x100b17640 
+  [PASS] BrushFnRaiseLower water depth clamped on lower @ 0x100734c7c 
+  [PASS] kMaxTerrainHeight tunable override changes the clamp @ 0x100734d13 
+  [PASS] BrushFnSmoothen modifies when diff exceeds threshold @ 0x100732bd2 
+  [PASS] BrushFnSmoothen lowers center vertex @ 0x100732bd2 
+  [PASS] BrushFnSmoothen raises cross neighbor @ 0x100732bd2 
+  [PASS] BrushFnSmoothen raises diagonal neighbor @ 0x100732bd2 
+  [PASS] BrushFnSmoothen modifies diagonal when cross below threshold @ 0x100732bd2 
+  [PASS] BrushFnSmoothen cross neighbor unchanged when diff <= cross threshold @ 0x100732bd2 
+  [PASS] BrushFnSmoothen diagonal neighbor modified when diff > diagonal threshold @ 0x100732bd2 
+  [PASS] BrushFnSmoothen out-of-range vertex -> false @ 0x100732bd2 
+  [PASS] BrushFnSmoothen zero flag -> false @ 0x100732bd2 
+  [PASS] ApplyBrushEffect RaiseLower wired @ 0x1007329cc 
+  [PASS] ApplyBrushEffect Smoothen wired @ 0x100732bd2 
+  [PASS] ApplyBrushEffect Flora wired, always returns false @ 0x100732a0e 
+  [PASS] pipeline fixture Init(4,4) @ 0x100739cb0 
+  [PASS] ApplyBrush finds the brush and runs the pipeline @ 0x100731c50 
+  [PASS] pipeline raises the swept vertex by flag*amount @ 0x1007321b8/0x1007329cc 
+  [PASS] pipeline water depth updated via RaiseVertex @ 0x100734cde 
+  [PASS] ApplyBrush out-rect is the union of modified vertices {2,2,2,2} @ 0x100731c50 
+  [PASS] ApplyBrush re-display gate fires via vtable+0x228 @ 0x100731d07 
+  [PASS] ApplyBrush re-display gate skips when params.reDisplay is false @ 0x100731cda 
+  [PASS] pipeline second application accumulates @ 0x100731d10 
+  [PASS] ApplyBrush unknown brush id -> false @ 0x100731cb6 
+  [PASS] ApplyBrush out-rect kEmptyRect-init @ 0x100731c61 
+  [PASS] BrushRadius reads desc radii[strengthIndex] @ 0x100734d6e 
+  [PASS] BrushRadius default 32.0f @ 0x100a18764 
+  [PASS] DoPostBrushApplicationOperation effect 2 -> PadRectangle(rect,1) @ 0x10073340e 
+  [PASS] DoPostBrushApplicationOperation effect 7 -> AddVolcanicAshRegion @ 0x10073340e 
+  [PASS] AddVolcanicAshRegion merges overlapping regions @ 0x100731628 
+  [PASS] AddVolcanicAshRegion merged rect {1,1,3,3} @ 0x100731628 
+  [PASS] DoPostBrushApplicationOperation other effects -> no-op @ 0x10073340e 
+  [PASS] BeginBrushScrub clears the decal map and tails to vtable+0x2b8 @ 0x100734a7e 
+  [PASS] BeginBrushScrub not-found path also tails to vtable+0x2b8 @ 0x100734afe/0x100734b58 
+  [PASS] ComputeRectAroundPt four rectangle corners, pts[3].x = -h @ 0x10073255c 
+  [PASS] GetTextureValue fetches the texel byte into ctx.flag @ 0x100733436 
+  [PASS] GetTextureValue out-of-texture-bounds -> false @ 0x100733436 
+  [PASS] neighbor fixture Init(4,4) @ 0x100739cb0 
+  [PASS] GetNeighborWithLowestWaterLevel picks the east cross neighbor (dir 4) @ 0x100737b50 
+  [PASS] GetNeighborWithLowestWaterLevel scales cross diffs by kRoot2 before diagonals @ 0x100733c4a 
+  [PASS] GetNeighborWithLowestWaterLevel returns -1 when no neighbor is lower @ 0x100737bf6 
+  [PASS] flora fixture Init(4,4) @ 0x100739cb0 
+  [PASS] InitFloraBrushInfo filters to attr-2 flora types, live count decremented @ 0x1007385e2 
+  [PASS] InitFloraBrushInfo removes non-attr-2 ids in place @ 0x10073868f..0x1007386be 
+  [PASS] InitFloraBrushInfo one-shot gate on +0x150 != 0 @ 0x1007385f3 
+  [PASS] flora fn fixture Init(4,4) @ 0x100739cb0 
+  [PASS] BrushFnFlora flag < 10 gate exits before the placement roll @ 0x100732a2e 
+  [PASS] BrushFnFlora placement roll > 30 bails with no placement @ 0x100732a4c 
+  [PASS] BrushFnFlora bail consumes exactly one RandomUint32Uniform(100) @ 0x100732a44 
+  [PASS] BrushFnFlora submerged-vertex bail @ 0x100732a69 
+  [PASS] BrushFnFlora submerged bail consumes no RandomDoubleRangeUniform @ 0x100732a69 
+  [PASS] BrushFnFlora cell-bounds gate stops before the jitter draws @ 0x100732ab4 
+  [PASS] flora fn fixture has one attr-2 brush id @ 0x1007385e2 
+  [PASS] BrushFnFlora always returns false on the placement path @ 0x100732bbf 
+  [PASS] BrushFnFlora records the jittered placement in RNG order (roll, x, z, index) @ 0x100732a38..0x100732b5c 
+  [PASS] flora pipeline fixture Init(4,4) @ 0x100739cb0 
+  [PASS] Flora pipeline brush found @ 0x100731c50 
+  [PASS] Flora sweep skipped when the filtered count is 0 @ 0x100732017 
+  [PASS] Flora sweep runs BrushFnFlora when +0x150 != 0 (gate-2 roll consumed) @ 0x100732017/0x100732a44 
+  [PASS] paint fixture Init(4,4) @ 0x100739cb0 
+  [PASS] Paint pipeline brush found @ 0x100731c50 
+  [PASS] BrushFnPaint records the decal placement in RNG order (jitter, x, z) @ 0x100732e86..0x100732f47 
+  [PASS] BrushFnPaint increments the decal-map count past the +0x4c gate @ 0x100732e60 
+  [PASS] BrushFnPaint count <= maxDecalCount still places (ja skips only on count > max) @ 0x100732e5a 
+  [PASS] BrushFnPaint count > maxDecalCount gate exits before the draws @ 0x100732e5a 
+  [PASS] effect fixture Init(4,4) @ 0x100739cb0 
+  [PASS] PlaceEffect pipeline brush found @ 0x100731c50 
+  [PASS] BrushFnPlaceEffect records (params, rndX, max(seaLevel, GetAltitude), rndZ) @ 0x100733122..0x1007331da 
+  [PASS] BrushFnPlaceEffect increments the decal-map count only after the +0x138 query succeeds @ 0x1007330d0 
+  [PASS] BrushFnPlaceEffect +0x138 query failure blocks the placement and the count increment @ 0x1007330c8 
+  [PASS] erosion fixture Init(4,4) @ 0x100739cb0 
+  [PASS] erosion pipeline brush found @ 0x100731c50 
+  [PASS] ApplyWaterErosionBrush rect = grid point padded by trunc(strengthCells/2) @ 0x1007332e1..0x100733302 
+  [PASS] DoWaterErosion rect-edge vertex dumps its depth and erodes at the min rate @ 0x100733811..0x100733981 
+  [PASS] DoWaterErosion vertex-flag bit 0x4000 suppresses erosion @ 0x100733975 
+  [PASS] DoWaterErosion interior vertex flows to the lowest neighbor and erodes @ 0x100733852..0x100733989 
+  [PASS] DoWaterErosion Phase C resets the padded rect to sea level @ 0x100733a95..0x100733b02 
+  [PASS] erosion-0 fixture Init(4,4) @ 0x100739cb0 
+  [PASS] DoWaterErosion numFlowSteps <= 0 skips Phase B @ 0x1007336fd..0x100733701 
+
+--- cSTETerrain surface-cover cluster ---
+  [PASS] deposit fixture Init(8,8) @ 0x100739cb0 
+  [PASS] DoWaterErosion interior vertex A erodes at the max rate @ 0x10073397d 
+  [PASS] DoWaterErosion interior receiver with leftover depth deposits sediment into altitude (kHydrDepositRate 0.2) @ 0x100733a04..0x100733a52 
+  [PASS] DoWaterErosion deposit leaves 80% of the excess sediment (plus later ring inflows) @ 0x100733a3e 
+  [PASS] DoWaterErosion C has no lower neighbor after B's flow -> skipped @ 0x100733857 
+  [PASS] DoWaterErosion C received B's excess-path carry @ 0x1007339a6 
+  [PASS] AreSeaVertices fixture Init(2,2) 
+  [PASS] AreSeaVertices true when every altitude is below sea level @ 0x100733b7d 
+  [PASS] AreSeaVertices false on one land vertex (strict seaLevel > altitude) @ 0x100733b80 
+  [PASS] AreSeaVertices unsigned gate: vertexCountX <= left -> false @ 0x100733b26 
+  [PASS] AreSeaVertices unsigned gate: vertexCountX <= right -> false @ 0x100733b3b 
+  [PASS] AreSeaVertices unsigned gate: vertexCountZ <= top -> false @ 0x100733b32 
+  [PASS] AreSeaVertices unsigned gate: vertexCountZ <= bottom -> false @ 0x100733b44 
+  [PASS] AreSeaVertices ODDITY: empty rect (top > bottom) returns true @ 0x100733b46 
+  [PASS] AreSeaVertices ODDITY: left > right skips every row and returns true @ 0x100733b5b 
+  [PASS] land-type fixture Init(1,1) 
+  [PASS] AddLandTypeAtVertex fills the first empty slot with int(ratio*255+1) @ 0x1007313c5 
+  [PASS] AddLandTypeAtVertex matching type keeps the max value @ 0x1007313d6 
+  [PASS] AddLandTypeAtVertex smaller value does not lower the max @ 0x1007313da 
+  [PASS] AddLandTypeAtVertex full table replaces the min-value slot when larger @ 0x100731386 
+  [PASS] AddLandTypeAtVertex no replacement when the new value <= min @ 0x1007313b0 
+  [PASS] ratio fixture Init(1,1) 
+  [PASS] AdjustLandTypeRatios rescales filled slots to value*250/sum when sum >= 251 @ 0x1007317bc 
+  [PASS] AdjustLandTypeRatios sum stops at the first empty slot (100 < 251, unchanged) @ 0x10073178b 
+  [PASS] proximity fixture Init(10,10) 
+  [PASS] ComputeWaterProximityValues unions into the +0xcc dirty rect @ 0x100733c7f 
+  [PASS] ComputeWaterProximityValues area < 100 skips the recompute @ 0x100733ca7 
+  [PASS] ComputeWaterProximityValues stores the water count at +0x108 @ 0x100733cdb 
+  [PASS] ComputeWaterProximityValues water vertices get proximity 0 @ 0x100733d2e 
+  [PASS] ComputeWaterProximityValues land near water gets the flood distance @ 0x100733d8e (clean-room BFS) 
+  [PASS] ComputeWaterProximityValues far land keeps kMaxBeachWidth+2 @ 0x100733d3a 
+  [PASS] ComputeWaterProximityValues resets the dirty rect to kEmptyRect @ 0x100733cb8 
+  [PASS] AddToTerrainTypeTextureList sorted-unique insert, count only on insert @ 0x1007315c1..0x100731614 
+  [PASS] AddTemperatureAndMoisture tokens stored in the 64-byte sub-entry @ 0x10073150c 
+  [PASS] AddTemperatureAndMoisture runs exactly 15 token iterations @ 0x100731522 
+  [PASS] AddTemperatureAndMoisture registers every token hash @ 0x100731516 
+  [PASS] ash fixture Init(4,4) 
+  [PASS] SprayVolcanicAsh clears the +0x24 dword when the region is fully covered @ 0x10073484f 
+  [PASS] SprayVolcanicAsh adds type 0xe0 at the flagged vertex @ 0x1007349dc 
+  [PASS] SprayVolcanicAsh spreads ash into the flagged vertex's influence rect @ 0x100734864 
+  [PASS] SprayVolcanicAsh leaves vertices outside every influence clean @ 0x100734783 
+  [PASS] ash-age fixture Init(4,4) 
+  [PASS] SprayVolcanicAsh factor = (1 - age/kVolcanicAshLifeTime) * multiplier @ 0x100734864..0x10073489a 
+  [PASS] DecideSurfaceCover fixture Init(10,10) 
+  [PASS] DecideSurfaceCover cliff bit 0x8 -> low-cliff tex id (low 16 bits) with 50.0f value @ 0x10073409a 
+  [PASS] DecideSurfaceCover deep water packs texId 19 via (variant<<12)|id (OR) and the spread loop adds it @ 0x10073400a..0x100734083 
+  [PASS] DecideSurfaceCover shallow water (depth < 15) uses texId 20 @ 0x100734017 
+  [PASS] DecideSurfaceCover skips vertices deeper than kMaxWaterDepthForDeepSeaBedTexture @ 0x100733fe9 
+  [PASS] DecideSurfaceCover beach center adds its land type with the 1.0f value @ 0x1007341c3 
+  [PASS] DecideSurfaceCover inland low vertex: tempCode 31, moisture 3 -> map[499] @ 0x100734293 
+  [PASS] DecideSurfaceCover altitude 250 -> tempCode 31-3 = 28 -> map[451] @ 0x10073423d 
+  [PASS] Assign fixture Init(2,2) 
+  [PASS] AssignSurfaceTexturesAndColors pads the rect in place by snMaxSurfaceTextureSpread @ 0x100733bf1 
+  [PASS] UpdateMoistureValues receives the padded rect * 16 (cell width) @ 0x100733d98..0x100733dc7 
+  [PASS] ClearSurfaceTextures zeroes the slot types before DecideSurfaceCover @ 0x100733c01..0x100733c13 
+  [PASS] AssignSurfaceTexturesAndColors MarkTextureSpanInfoDirty((top>0)?top-1:0, min(bottom+1, maxVertexIndexZ)) gated on +0x118 @ 0x100733c0c..0x100733c2e 
+  [PASS] AssignSurfaceTexturesAndColors +0x118 gate off -> no view call @ 0x100733c13 
+
+--- cSTETerrain shore-cliff & normals cluster ---
+  [PASS] MarkCliff fixture Init(8,8) @ 0x100739cb0 
+  [PASS] MarkCliff first-bool-only marks {v, v+stride, v+stride+1} @ 0x1007354d3..0x100735513 
+  [PASS] MarkCliff second-bool-only marks {v, v+1, v+stride+1} @ 0x100735520..0x10073555c 
+  [PASS] MarkCliff mixed path on flat ground sets 0x800, no 0x8 @ 0x10073559c 
+  [PASS] MarkCliff mixed path flips triangulation via vtable+0x2f0 with (z, x) @ 0x100735589/0x1007388ac 
+  [PASS] FlipInternalTriangulation sets flag bit 0x1000 @ 0x100738899 
+  [PASS] FlipInternalTriangulation early-outs when the bit already matches @ 0x100738892 
+  [PASS] FlipInternalTriangulation cell bounds gates @ 0x10073884e..0x100738856 
+  [PASS] MarkCliff both-steep marks the full quad without flipping @ 0x1007354c0..0x1007354c9 
+  [PASS] MarkCliff mixed path steepA marks {v, v+stride, v+1} @ 0x1007355aa..0x1007355d8 
+  [PASS] MarkCliff mixed path steepB marks {v+1, v+stride, v+stride+1} @ 0x1007355ef..0x100735618 
+  [PASS] Right walker next-dir = (pre-update seaDir + 6) & 7 probes the marked start and stops @ 0x100739759..0x100739764 
+  [PASS] Left walker seaDir==0 remap walks the full northern shoreline east @ 0x1007398fa..0x100739911 
+  [PASS] flat quad normals normalize to exactly (0,1,0) @ 0x100734f7d..0x100734fb3 
+  [PASS] padded top row gets quad normals but NO vertex normals @ 0x100735096 
+  [PASS] steep B-triangulation quads mark the cliff band via MarkCliff @ 0x100735039..0x100735050 
+  [PASS] interior vertex over flat quads sums to (0,1,0) @ 0x1007350dd..0x10073523d 
+  [PASS] vertex normals are unit length after the zero-guard normalize @ 0x1007351e1..0x100735231 
+  [PASS] ClearVertexPropertyFlags(rect, mask) clears [left,right] x [top,bottom] inclusive @ 0x100735288 
+  [PASS] ClearVertexPropertyFlags(rect, mask) second pass clears the high byte everywhere @ 0x100735288 
+  [PASS] shore fixture Init(8,8) 
+  [PASS] CreateShoreCliffs creates a cliff from a straight coastline @ 0x100736d3e 
+  [PASS] CreateShoreCliff ORs 0x4 onto seaNeighbor and vertex @ 0x100731b67/0x100731b7c 
+  [PASS] CreateShoreCliff raises the shore vertices above the old land @ 0x100731bda 
+  [PASS] CreateShoreCliff only marks the walked endpoints @ 0x100731ab0 
+  [PASS] CreateShoreCliff raises the five inland probes (base 40.1..50.1 + sea 10, jitter -8..+8) @ 0x100731bf6..0x100731c21 
+  [PASS] MarkRegion(8, IsVertexWithMark3, IsLandAndNotMark3, 0x2) spreads mark 0x2 over land @ 0x100736e26..0x100736e48 
+  [PASS] CreateShoreCliffs(redisplay=true) calls vtable+0x228 once @ 0x100736e76..0x100736e93 
+  [PASS] CreateShoreCliffs tail clears flag bit 0x8 over every vertex @ 0x100736ea9..0x100736ec3 
+  [PASS] CreateShoreCliffs returns false with no redisplay when no shore exists @ 0x100736e22 
+  [PASS] GetNeighboringSeaVertex returns the first sea cross-neighbor (W first) or -1 @ 0x100731a1c 
+  [PASS] IsShoreVertex: land with a sea cross-neighbor only @ 0x10073751a 
+  [PASS] GetShoreStartingAtVert walks the full shoreline (Left prepends, Right stops) @ 0x100736f5e..0x100739928 
+  [PASS] the shore walk marks every visited vertex with the mark bit @ 0x1007398c4 
+  [PASS] ChangeTerrainLevel(true, 2.5) raises every vertex via RaiseVertex + one redisplay @ 0x100735746 
+  [PASS] ChangeTerrainLevel(false, 2.5) lowers every vertex via LowerVertex + one redisplay @ 0x100735746 
+  [PASS] ChangeSeaLevel(true) applies seaLevel + kSeaRaiseLowerAmount(20) @ 0x100735714 
+  [PASS] SetSeaLevel resets the surface water over the cached world rect (+0x58) @ 0x10073e584 
+  [PASS] SetSeaLevel posts message 0x89171496 (recorded no-op) @ 0x10073e590 
+  [PASS] SetSeaLevel range gate rejects > kMaxSeaLevel(200.1) @ 0x10073e56b..0x10073e576 
+  [PASS] SetSeaLevel accepts -10.0f (>= kMinSeaLevel -10.1f) @ 0x10073e562..0x10073e578 
+  [PASS] SetSeaLevel range gate rejects < kMinSeaLevel(-10.1f) @ 0x10073e562..0x10073e569 
+  [PASS] ChangeSeaLevel(false) applies seaLevel - 20 @ 0x100735714 
+  [PASS] FindMinAndMaxHeights() full-grid scan writes +0x90/+0x94 @ 0x1007362b4 
+  [PASS] FindMinAndMaxHeights(rect) do-while scans column `left` even when left == right @ 0x100735c54 
+  [PASS] no view: candidate max FLT_MAX replaces, then clamps to kMaxTerrainHeight(200) @ 0x100735b45..0x100735c0d 
+  [PASS] view3D candidate range: max clamps scanMax+eps(20) down to max(view, mMaxHeight) @ 0x100735bc7..0x100735be8 
+  [PASS] visible edge zeroes outMin (skips the min adjust) @ 0x100735b23..0x100735b43 
+  [PASS] no visible edge: mMinHeight > candidate min -> outMin = candidate min @ 0x100735b98..0x100735bbe 
+  [PASS] rect == cached world rect uses mMinHeight/mMaxHeight, not the scan @ 0x100735a81..0x100735abe 
+
+--- cSTETerrain brush property loading (0x10073aafe..0x10073b548) ---
+  [PASS] GetEffectIDProperty: missing property -> false, out untouched @ 0x100738df1 
+  [PASS] GetEffectIDProperty: exactly-2-uint vector -> out[0]/out[1] copied @ 0x100738e08..0x100738e12 
+  [PASS] GetEffectIDProperty: 3-uint vector fails the end-begin==8 gate (cmp/jne @ 0x100738e03..0x100738e06) 
+  [PASS] GetEffectIDProperty: kind mismatch -> false, out untouched 
+  [PASS] GetCostPerBrushApplication: missing brush -> default 32 @ 0x100738db5 
+  [PASS] GetCostPerBrushApplication: cvttss2si truncates 1.9f -> 1 @ 0x100738dc3 
+  [PASS] GetCostPerBrushApplication: cvttss2si truncates -7.9f -> -7 (toward zero) 
+  [PASS] GetCostPerBrushApplication: OOB strength index -> model-guard 32 (the binary reads ungated @ 0x100738dc3) 
+  [PASS] Whole: 0x102=30deg -> jitter=1 (setne), deg->rad scale, RNG rotationAccum (seed oracle), directionAngle=0 @ 0x10073b28f..0x10073b2e9 
+  [PASS] Whole: pre-scale step == 0.0f -> jitter=0, rotationAccum=0 (fall-through @ 0x10073b2e1) 
+  [PASS] Whole: zero-step path consumed ZERO RNG draws (sRand state untouched; ucomiss gate @ 0x10073b2a5/b5) 
+  [PASS] Whole: NaN step -> jitter=1 (setp) and RNG path (jp @ 0x10073b2b7) 
+  [PASS] Whole: missing 0x102 -> jitter=1, step bits 0x3c0efa35, RNG always @ 0x10073b2bb..0x10073b2c6 
+  [PASS] Whole: 0x101 costs = 5 raw dword copies @ 0x10073b31c..0x10073b32a; 0x103/0x104 sound ids 
+  [PASS] Whole: short 0x101 vector -> guarded tail reads 0.0f (the binary copies 5 ungated) 
+  [PASS] Whole: missing 0x101 -> all five costs zeroed @ 0x10073b32e..0x10073b338; missing sound ids -> 0 
+  [PASS] UI: empty holder -> movabs pair defaults {0xea3169e6,2/1/4/3} + sound defaults @ 0x10073b3da..0x10073b488 
+  [PASS] UI: present pairs/sounds copied; 3-uint pair fails the gate -> movabs default 
+  [PASS] Components: one effect-4 component loads (count>0 return gate @ 0x10073ae63) 
+  [PASS] Components: elementwise MAX into desc.radii (jbe skip @ 0x10073abd3) 
+  [PASS] Components: effect-4 field fills 0x05/0x02/0x03/0x01/0x00/0x04/0x08/0x09 (byte copied @ 0x10073adc9, field60 vestigial-empty @ 0x10073ae38) 
+  [PASS] Components: effect-3 paint -> 0x06 decalId + 0x07 jitterAmp /= 360.0f @ 0x10073ad3f + 0x08 maxDecal 
+  [PASS] Components: effect 6/10 forces resourceId/flag48/decalId/maxDecal/params 0 + jitterAmp 2pi, without reading 0x...00/0x...04 @ 0x10073ac33..0x10073ac58 
+  [PASS] Components: 4-iteration loop shifts the family +0x100 per component (i << 8 @ 0x10073ab34) 
+  [PASS] Components: no effect properties at all -> count==0 -> false (setg @ 0x10073ae63) 
+  [PASS] Components: strengths failure skips the component but the radii MAX already ran; return gate is count>0 (skip path @ 0x10073ad4f) 
+  [PASS] Components: effect 12 > 0xb aborts all @ 0x10073ab98 
+  [PASS] Components: required-prop failure aborts with NO rollback — the earlier pushed component stays (r15b=1 path @ 0x10073ad4c) 
+  [PASS] Components: missing radii (required) -> abort all @ 0x10073abb7 
+  [PASS] Components: missing resourceId (required, non-6/10) -> abort all @ 0x10073acb2 
+  [PASS] Components: missing flag48 0x...04 (required, non-6/10) -> abort all @ 0x10073acfe 
+  [PASS] Components: missing bool 0x...01 is NON-required (result ignored) — component pushes with useDirectionAngle 0 
+  [PASS] Components: 0x...04 is read as byte — a bool-kind value fails the required read (dual 0x04 decode) 
+  [PASS] Components: effect 3 missing 0x...06 decalId -> abort all @ 0x10073ad20 
+  [PASS] Components: effect 3 missing 0x...07 jitterAmp -> abort all @ 0x10073ad38 
+  [PASS] Components: effects 3/4 missing 0x...08 maxDecalCount -> abort all @ 0x10073ac92 
+  [PASS] Components: effect 3 completes (360/360 == 1.0) 
+  [PASS] Components: effect 4 wrong-size 0x...09 pair -> abort all @ 0x10073ace1 (NOT a zeroed fallback) 
+  [PASS] LIVE ORACLE (sBrushDescriptionMap key 0x11 @ 0x100b71e20): synthetic load reproduces the game-written node bit-for-bit (jitter=1, step 0x3c0efa35, radii 5, one 0x78 component, UI pairs {0xea3169e6,2/1/4/3}, costs zeroed) 
+  [PASS] ReadBrushDescriptions: iterator applies the callback to every query match; the component-failure exemplar is erased (vt+0x38 @ 0x10073b515 / erase @ 0x10073b14e) 
+  [PASS] ReadBrushDescription: fresh key -> zero-insert, radii resize(5)+zero, id mirror (@ 0x10073b06d/0x10073b0f0/0x10073b112) 
+  [PASS] ReadBrushDescription: already-present key skips BEFORE the exemplar load (no RNG draws) (tree walk @ 0x10073af25..0x10073af55) 
+  [PASS] ReadBrushDescription: exemplar load failure exits without inserting (je @ 0x10073af7c) 
+  [PASS] ReadBrushDescription: component failure erases the fresh entry (__erase_unique @ 0x10073b14e) 
+  [PASS] ReadBrushDescriptions: Release clears the map first (@ 0x10073b4b1) and query status 0 iterates nothing (je @ 0x10073b503) 
+  [PASS] ReadBrushDescriptions: query status != 0 -> apply-callback inserts every exemplar 
+  [PASS] ReadBrushDescriptions: null source (spResMan == 0) is a full no-op before the Release call (je @ 0x10073b4af) 
+  [PASS] ReleaseBrushDescriptions clears every node (map reset @ 0x10073b5ce..0x10073b5f1) 
+
+--- cSTETerrain tuning parameter loading (0x10073d95e) ---
+  [PASS] ReadTuningParameters: null source (SL::spRM unset in clean-room mode) exits before any read @ 0x10073d9a4 
+  [PASS] ReadTuningParameters: exemplar load failure exits with every global untouched (je @ 0x10073d9a4) 
+  [PASS] empty holder: missing properties leave the scalars untouched (GetPropertyValue failure contract) 
+  [PASS] empty holder quirk (a): still fires off the untouched values — shipped min 5.0 > shipped kSeaLevel denormal slot (bits 0x1) -> 5.0 @ 0x10073da31 
+  [PASS] empty holder quirk (b): does not fire — 5.0 <= shipped default 50.0 (jbe @ 0x10073da5c) 
+  [PASS] empty holder quirk (c): fires on the untouched shipped value — 15.0 * 6.0f = 90.0 @ 0x10073dc26 (unconditional mulss) 
+  [PASS] empty holder quirk (e): derives off the untouched lifeTime — 10000000/20 = 500000 @ 0x10073dd65..0x10073dd78 
+  [PASS] empty holder: the setne flag stores ALWAYS fire — shipped bytes 0x8a/0x01 are wiped to 0 (pre-zeroed stack-slot model) @ 0x10073dcef/0x10073dd09 
+  [PASS] empty holder: curve gate not taken (property 0x48cd7c00 absent, je @ 0x10073ddb7) but DetermineTextureFamilyMembersForGridCells ran once @ 0x10073d9cb 
+  [PASS] ReadTuningParameters consumes ZERO RNG (no cRZRandom call in the 0x10073d95e body) 
+  [PASS] ORACLE-ANCHORED: live post-load values land bit-exact (2500/20/15/60/18-after-*6/60/100/0.5/-10/200/5/0.3) per dossier_runtime_tunables.md 
+  [PASS] ORACLE-ANCHORED: kNumFlowStepsPerWaterErosionBrushApplication -> {1,1,1,1,1} (DoWaterErosion runtime flow steps) @ 0x10073dd7e 
+  [PASS] quirk (a) not-fire (20 <= 250 leaves kSeaLevel) + quirk (b) fire (1.0 < 20 -> 20.0) @ 0x10073da31/0x10073da5e 
+  [PASS] the full read sequence wires every tuning global in the binary's fixed order (0x10073d9b7..0x10073ddeb) 
+  [PASS] quirk (d): angles scaled by f64 pi/180 via cvtss2sd/mulsd/cvtsd2ss @ 0x10073dd24..0x10073dd4f 
+  [PASS] quirk (e): update interval = lifeTime * 0xCCCCCCCD >> 36 = 2000/20 = 100 @ 0x10073dd65..0x10073dd78 
+  [PASS] setne flag stores normalize 7 -> 1; the MISSING 0x48cd7b81 read inherits the shared [rbp-0x19] leftover -> 1 @ 0x10073dcef/0x10073dd09 
+  [PASS] property 0x48cd7c00 non-null -> SetResponseCurveData boundary observed (je @ 0x10073ddb7; callee TODO no-op); Determine ran again @ 0x10073d9cb 
+  [PASS] kWindErosionFactor is NOT wired by ReadTuningParameters (fill site is ReadTerrainIniFile @ 0x10073c19d, a later ticket) — keeps the shipped denormal slot 
+  [PASS] quirk (a) fire: kMinTerrainHeight(20) > kSeaLevel(10) -> kSeaLevel := 20 @ 0x10073da31 
+  [PASS] quirk (a) not-fire: 5.0 <= 300.0 leaves kSeaLevel untouched (jbe @ 0x10073da2f) 
+  [PASS] quirk (a) NaN: ucomiss unordered sets CF -> jbe taken -> NaN kSeaLevel preserved, NOT overwritten @ 0x10073da2f 
+  [PASS] quirk (b) fire: 20 > 10 -> kDefaultTerrainHeight := 20 @ 0x10073da5e 
+  [PASS] quirk (b) not-fire: 5.0 <= shipped 50.0 leaves kDefaultTerrainHeight untouched (jbe @ 0x10073da5c) 
+  [PASS] quirk (c) scales the exemplar value: 4.0 * 6.0f = 24.0 @ 0x10073dc26 
+  [PASS] quirk (c) propagates NaN (mulss has no NaN gate) @ 0x10073dc26 
+  [PASS] quirk (d): a 1-entry vector scales only entry 0 (binary walks 5 entries ungated — model guard) @ 0x10073dd2c..0x10073dd4f 
+  [PASS] quirk (e): 21 * 0xCCCCCCCD >> 36 = 1 (magic reciprocal truncates; not 1.05) @ 0x10073dd70..0x10073dd74 
+  [PASS] quirk (e): 19/20 truncates to 0 @ 0x10073dd70..0x10073dd74 
+  [PASS] shared [rbp-0x19] slot: first read fails on the pre-zeroed slot -> 0; second read byte 5 -> setne 1 @ 0x10073dcef/0x10073dd09 
+  [PASS] mistyped property (Uint stored, float& read) -> GetPropertyValue fails, global keeps the shipped default @ 0x10073d9e4 
+  [PASS] partial fixture: the one present property lands, every other global keeps its shipped default 
+  [PASS] cleanup: every tuning global restored to its shipped __DATA default 
+
+================================================================
+ Result: 870 passed, 1 failed
+================================================================

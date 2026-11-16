@@ -1,0 +1,4 @@
+PositionToCell: 38 cases, 114 checks, 0 failures
+CellToPosition: 159 checks, 0 failures
+CellToStandardCityCell: 12 checks, 0 failures
+StandardCityCellToCell: 24 cases, 0 failures

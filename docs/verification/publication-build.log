@@ -1,0 +1,62 @@
+[  2%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/gzcom.cpp.o
+[  5%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/rz_random.cpp.o
+[  7%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/formats.cpp.o
+[ 10%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/dbpf.cpp.o
+[ 12%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/city.cpp.o
+[ 15%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/saved_building_capacity.cpp.o
+[ 17%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/loaded_aging_transition.cpp.o
+[ 20%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_position_to_cell.cpp.o
+[ 22%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_cell_to_position.cpp.o
+[ 25%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_cell_to_standard.cpp.o
+[ 27%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_standard_to_cell.cpp.o
+[ 30%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/tract_developer.cpp.o
+[ 32%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/budget_simulator.cpp.o
+[ 35%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/demand_simulator.cpp.o
+[ 37%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/civic_simulators.cpp.o
+[ 40%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/terrain.cpp.o
+[ 42%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/sc4_subfiles.cpp.o
+[ 45%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/sc4_subfiles_batch2.cpp.o
+[ 47%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/sc4_subfiles_batch3.cpp.o
+[ 50%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/sc4_subfiles_automata.cpp.o
+[ 52%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/sc4_save_registry.cpp.o
+[ 55%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/decompilation_registry.cpp.o
+[ 57%] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/renderer/gl_city_renderer.cpp.o
+[ 60%] Linking CXX static library libopensc4_authentic_core.a
+[ 60%] Built target opensc4_authentic_core
+[ 62%] Building CXX object authentic/CMakeFiles/opensc4_authentic.dir/src/platform/http_server.cpp.o
+[ 65%] Building CXX object authentic/CMakeFiles/opensc4_authentic.dir/src/platform/main.cpp.o
+[ 67%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/verify_sot.cpp.o
+[ 70%] Building OBJCXX object authentic/CMakeFiles/opensc4_authentic_render_snapshot.dir/tools/render_snapshot.mm.o
+[ 72%] Building OBJCXX object authentic/CMakeFiles/opensc4_authentic.dir/src/platform/macos_gl_app.mm.o
+[ 75%] Linking CXX executable opensc4_authentic_render_snapshot
+[ 77%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/saved_capacity_checks.cpp.o
+[ 77%] Built target opensc4_authentic_render_snapshot
+[ 80%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/saved_sint32_checks.cpp.o
+[ 82%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/pollution_aging_math_checks.cpp.o
+[ 85%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/loaded_aging_transition_checks.cpp.o
+[ 87%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_position_to_cell_checks.cpp.o
+[ 90%] Linking CXX executable opensc4_authentic
+[ 90%] Built target opensc4_authentic
+[ 92%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_cell_to_position_checks.cpp.o
+[ 95%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_cell_to_standard_checks.cpp.o
+[ 97%] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_standard_to_cell_checks.cpp.o
+[100%] Linking CXX executable opensc4_authentic_verify
+[100%] Built target opensc4_authentic_verify
+/Users/russellmartin/Documents/OpenSC4Publication/public-source-20261116-234454/authentic/src/terrain.cpp:261:19: warning: unused variable 'fracX' [-Wunused-variable]
+  261 |     const Float32 fracX = x - cornerX;
+      |                   ^~~~~
+/Users/russellmartin/Documents/OpenSC4Publication/public-source-20261116-234454/authentic/src/terrain.cpp:262:19: warning: unused variable 'fracZ' [-Wunused-variable]
+  262 |     const Float32 fracZ = z - cornerZ;
+      |                   ^~~~~
+In file included from /Users/russellmartin/Documents/OpenSC4Publication/public-source-20261116-234454/authentic/src/terrain.cpp:6:
+/Users/russellmartin/Documents/OpenSC4Publication/public-source-20261116-234454/authentic/include/opensc4/terrain.h:1617:13: warning: private field 'mRefCount' is not used [-Wunused-private-field]
+ 1617 |     Uint32  mRefCount       = 0;     // +0x1c
+      |             ^
+3 warnings generated.
+/Users/russellmartin/Documents/OpenSC4Publication/public-source-20261116-234454/authentic/tools/render_snapshot.mm:4:9: warning: 'GL_SILENCE_DEPRECATION' macro redefined [-Wmacro-redefined]
+    4 | #define GL_SILENCE_DEPRECATION
+      |         ^
+<command line>:1:9: note: previous definition is here
+    1 | #define GL_SILENCE_DEPRECATION 1
+      |         ^
+1 warning generated.

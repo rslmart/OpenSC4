@@ -1,0 +1,3 @@
+# Build artifact - regenerate with ./build.sh
+opensc4_oracle.dylib
+steam_appid.txt

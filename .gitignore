@@ -1,0 +1,29 @@
+# Build artifacts
+build/
+build-*/
+cmake-build-*/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+.vscode/
+.idea/
+
+# Local proprietary reference installation; never commit game assets.
+/SimCity 4 Deluxe/
+
+# Private planning and generated native artifacts
+/plans/
+/PROJECT_EXPORT.md
+/GOALS.md
+/ROLLOUT.md
+*.bin
+*.dylib
+*.dll
+*.exe

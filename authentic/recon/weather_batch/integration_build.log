@@ -1,0 +1,26 @@
+[0/1] Re-running CMake...
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/russellmartin/Personal/OpenSC4/build
+[1/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_position_to_cell.cpp.o
+[2/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_cell_to_position.cpp.o
+[3/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_standard_to_cell.cpp.o
+[4/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_cell_to_position_checks.cpp.o
+[5/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_standard_to_cell_checks.cpp.o
+[6/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_cell_to_standard_checks.cpp.o
+[7/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_core.dir/src/weather_cell_to_standard.cpp.o
+[8/15] Linking CXX static library authentic/libopensc4_authentic_core.a
+[9/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_position_to_cell_checks.cpp.o
+[10/15] Linking CXX executable opensc4_parity_digest_authentic
+[11/15] Linking CXX executable authentic/opensc4_authentic_render_snapshot
+[12/15] Linking CXX executable authentic/opensc4_authentic
+[13/15] Building CXX object authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/verify_sot.cpp.o
+[14/15] Linking CXX executable authentic/opensc4_authentic_verify
+FAILED: [code=1] authentic/opensc4_authentic_verify 
+: && /usr/bin/c++ -O3 -DNDEBUG -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/verify_sot.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/saved_capacity_checks.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/saved_sint32_checks.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/pollution_aging_math_checks.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/loaded_aging_transition_checks.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_position_to_cell_checks.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_cell_to_position_checks.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_cell_to_standard_checks.cpp.o authentic/CMakeFiles/opensc4_authentic_verify.dir/tests/weather_standard_to_cell_checks.cpp.o -o authentic/opensc4_authentic_verify  authentic/libopensc4_authentic_core.a  -framework OpenGL && :
+Undefined symbols for architecture arm64:
+  "RunWeatherCellToStandardCityCellChecks()", referenced from:
+      _main in verify_sot.cpp.o
+ld: symbol(s) not found for architecture arm64
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
